@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB9944B81C2D5D9800571647 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9944B71C2D5D9800571647 /* MainTableViewCell.swift */; };
+		AB9944BC1C2DD13C00571647 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9944BB1C2DD13C00571647 /* MenuViewController.swift */; };
 		ABFB986D1C2D4CBF009A0354 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB986C1C2D4CBF009A0354 /* AppDelegate.swift */; };
 		ABFB986F1C2D4CBF009A0354 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFB986E1C2D4CBF009A0354 /* MainViewController.swift */; };
 		ABFB98721C2D4CBF009A0354 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABFB98701C2D4CBF009A0354 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		AB9944B71C2D5D9800571647 /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		AB9944BB1C2DD13C00571647 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		ABFB98691C2D4CBF009A0354 /* CustomMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFB986C1C2D4CBF009A0354 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABFB986E1C2D4CBF009A0354 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				ABFB986C1C2D4CBF009A0354 /* AppDelegate.swift */,
 				ABFB986E1C2D4CBF009A0354 /* MainViewController.swift */,
 				AB9944B71C2D5D9800571647 /* MainTableViewCell.swift */,
+				AB9944BB1C2DD13C00571647 /* MenuViewController.swift */,
 				ABFB98701C2D4CBF009A0354 /* Main.storyboard */,
 				ABFB98731C2D4CBF009A0354 /* Assets.xcassets */,
 				ABFB98751C2D4CBF009A0354 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				ABFB986F1C2D4CBF009A0354 /* MainViewController.swift in Sources */,
 				AB9944B81C2D5D9800571647 /* MainTableViewCell.swift in Sources */,
 				ABFB986D1C2D4CBF009A0354 /* AppDelegate.swift in Sources */,
+				AB9944BC1C2DD13C00571647 /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

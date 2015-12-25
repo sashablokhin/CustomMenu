@@ -53,29 +53,22 @@
                                     <outlet property="delegate" destination="X8L-TO-SMF" id="iiA-S1-PO0"/>
                                 </connections>
                             </tableView>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jlv-gD-RhW">
-                                <rect key="frame" x="0.0" y="538" width="320" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="FLC-OE-yrz"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Llm-s0-TTX">
                                 <rect key="frame" x="135" y="510" width="50" height="50"/>
                                 <animations/>
                                 <state key="normal" image="Menu "/>
+                                <connections>
+                                    <segue destination="wf5-SR-aUL" kind="presentation" id="3j3-Ml-G4d"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="1Xt-tZ-hp3" firstAttribute="top" secondItem="Jlv-gD-RhW" secondAttribute="bottom" id="4nO-pe-Yyv"/>
                             <constraint firstItem="1Xt-tZ-hp3" firstAttribute="top" secondItem="jFF-nR-rjw" secondAttribute="bottom" id="AgM-ua-gCi"/>
-                            <constraint firstAttribute="trailing" secondItem="Jlv-gD-RhW" secondAttribute="trailing" id="JAu-Zc-ATg"/>
                             <constraint firstItem="jFF-nR-rjw" firstAttribute="leading" secondItem="3OE-Th-gAw" secondAttribute="leading" id="N0I-vA-Yrs"/>
                             <constraint firstItem="1Xt-tZ-hp3" firstAttribute="top" secondItem="Llm-s0-TTX" secondAttribute="bottom" constant="8" id="Vue-Pd-DJ5"/>
                             <constraint firstItem="jFF-nR-rjw" firstAttribute="top" secondItem="4pf-e4-FYI" secondAttribute="bottom" constant="-65" id="hiJ-dq-c13"/>
-                            <constraint firstItem="Jlv-gD-RhW" firstAttribute="leading" secondItem="3OE-Th-gAw" secondAttribute="leading" id="r8M-Tf-y0w"/>
                             <constraint firstItem="Llm-s0-TTX" firstAttribute="centerX" secondItem="3OE-Th-gAw" secondAttribute="centerX" id="wUs-DG-cet"/>
                             <constraint firstAttribute="trailing" secondItem="jFF-nR-rjw" secondAttribute="trailing" id="xn8-z0-9b7"/>
                         </constraints>
@@ -83,13 +76,94 @@
                     <navigationItem key="navigationItem" id="dQk-je-TOq"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="gradientView" destination="Jlv-gD-RhW" id="gle-db-oLe"/>
                         <outlet property="tableView" destination="jFF-nR-rjw" id="Hwb-he-jsc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSD-Io-ef6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2291" y="235"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="607-CA-t2O">
+            <objects>
+                <viewController id="wf5-SR-aUL" customClass="MenuViewController" customModule="CustomMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bHk-m7-Kqz"/>
+                        <viewControllerLayoutGuide type="bottom" id="r73-WP-gww"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vts-17-xyL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6V-pT-pr8" userLabel="Aligment">
+                                <rect key="frame" x="130" y="255" width="60" height="57"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Dw1-C3-WpV"/>
+                                    <constraint firstAttribute="height" constant="57" id="fOx-vU-E3q"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass" translatesAutoresizingMaskIntoConstraints="NO" id="Dcq-gQ-6oC">
+                                <rect key="frame" x="180" y="100" width="100" height="100"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="m1I-wV-xYk">
+                                <rect key="frame" x="40" y="100" width="100" height="100"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Planner" translatesAutoresizingMaskIntoConstraints="NO" id="ZnE-YL-DqG">
+                                <rect key="frame" x="180" y="234" width="100" height="100"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Marker" translatesAutoresizingMaskIntoConstraints="NO" id="q07-cy-4Ma">
+                                <rect key="frame" x="40" y="234" width="100" height="100"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Suitcase" translatesAutoresizingMaskIntoConstraints="NO" id="n3p-bB-OAT">
+                                <rect key="frame" x="180" y="378" width="100" height="100"/>
+                                <animations/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Route" translatesAutoresizingMaskIntoConstraints="NO" id="EoW-WN-tfZ">
+                                <rect key="frame" x="40" y="378" width="100" height="100"/>
+                                <animations/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cs-iI-QWT">
+                                <rect key="frame" x="130" y="518" width="60" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Закрыть">
+                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="wf5-SR-aUL" eventType="touchUpInside" id="UWy-L2-dZ9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="EoW-WN-tfZ" firstAttribute="leading" secondItem="Vts-17-xyL" secondAttribute="leading" constant="40" id="0ZF-7v-RO9"/>
+                            <constraint firstItem="0Cs-iI-QWT" firstAttribute="top" secondItem="EoW-WN-tfZ" secondAttribute="bottom" constant="40" id="5jo-7k-Gml"/>
+                            <constraint firstAttribute="trailing" secondItem="n3p-bB-OAT" secondAttribute="trailing" constant="40" id="7Kw-Zw-P4m"/>
+                            <constraint firstItem="m1I-wV-xYk" firstAttribute="leading" secondItem="Vts-17-xyL" secondAttribute="leading" constant="40" id="Dfy-Zh-Jab"/>
+                            <constraint firstItem="0Cs-iI-QWT" firstAttribute="centerX" secondItem="Vts-17-xyL" secondAttribute="centerX" id="DhB-by-foj"/>
+                            <constraint firstItem="ZnE-YL-DqG" firstAttribute="centerY" secondItem="S6V-pT-pr8" secondAttribute="centerY" id="H0q-PM-0Rx"/>
+                            <constraint firstAttribute="trailing" secondItem="Dcq-gQ-6oC" secondAttribute="trailing" constant="40" id="LGc-XQ-l7f"/>
+                            <constraint firstItem="q07-cy-4Ma" firstAttribute="centerY" secondItem="S6V-pT-pr8" secondAttribute="centerY" id="N1m-Hr-dKn"/>
+                            <constraint firstItem="Dcq-gQ-6oC" firstAttribute="top" secondItem="bHk-m7-Kqz" secondAttribute="bottom" constant="80" id="Vev-Ly-3tz"/>
+                            <constraint firstItem="m1I-wV-xYk" firstAttribute="top" secondItem="bHk-m7-Kqz" secondAttribute="bottom" constant="80" id="Y0i-jG-mc0"/>
+                            <constraint firstAttribute="trailing" secondItem="ZnE-YL-DqG" secondAttribute="trailing" constant="40" id="ZPY-VN-tit"/>
+                            <constraint firstItem="S6V-pT-pr8" firstAttribute="centerX" secondItem="Vts-17-xyL" secondAttribute="centerX" id="bJf-dM-yF0"/>
+                            <constraint firstItem="0Cs-iI-QWT" firstAttribute="top" secondItem="n3p-bB-OAT" secondAttribute="bottom" constant="40" id="eaf-RE-vDU"/>
+                            <constraint firstItem="q07-cy-4Ma" firstAttribute="leading" secondItem="Vts-17-xyL" secondAttribute="leading" constant="40" id="gE3-17-MYH"/>
+                            <constraint firstItem="r73-WP-gww" firstAttribute="top" secondItem="0Cs-iI-QWT" secondAttribute="bottom" constant="20" id="ruP-8j-cbL"/>
+                            <constraint firstItem="S6V-pT-pr8" firstAttribute="centerY" secondItem="Vts-17-xyL" secondAttribute="centerY" id="vuj-sb-1Bn"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xtN-GH-nfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2722" y="235"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gEk-XI-lGL">
@@ -113,6 +187,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Camera" width="100" height="100"/>
+        <image name="Compass" width="100" height="100"/>
+        <image name="Marker" width="100" height="100"/>
         <image name="Menu " width="50" height="50"/>
+        <image name="Planner" width="100" height="100"/>
+        <image name="Route" width="100" height="100"/>
+        <image name="Suitcase" width="100" height="100"/>
     </resources>
 </document>

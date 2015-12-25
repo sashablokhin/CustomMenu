@@ -11,7 +11,6 @@ import UIKit
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var gradientView: UIView!
     
     var gradientLayer: CAGradientLayer!
 
@@ -35,8 +34,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let half = view.layer.bounds.height / 2
         let frame = CGRect(x: 0, y: view.layer.bounds.height - half, width: view.layer.bounds.width, height: half)
         
-        self.gradientLayer.frame = frame//view.layer.bounds
-
+        self.gradientLayer.frame = frame
         gradientLayer.opacity = 0.5
         
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
