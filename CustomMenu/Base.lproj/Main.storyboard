@@ -58,7 +58,7 @@
                                 <animations/>
                                 <state key="normal" image="Menu "/>
                                 <connections>
-                                    <segue destination="wf5-SR-aUL" kind="presentation" id="3j3-Ml-G4d"/>
+                                    <segue destination="wf5-SR-aUL" kind="presentation" modalPresentationStyle="overFullScreen" id="3j3-Ml-G4d"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,11 +104,11 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Compass" translatesAutoresizingMaskIntoConstraints="NO" id="Dcq-gQ-6oC">
-                                <rect key="frame" x="180" y="100" width="100" height="100"/>
+                                <rect key="frame" x="180" y="90" width="100" height="100"/>
                                 <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Camera" translatesAutoresizingMaskIntoConstraints="NO" id="m1I-wV-xYk">
-                                <rect key="frame" x="40" y="100" width="100" height="100"/>
+                                <rect key="frame" x="40" y="90" width="100" height="100"/>
                                 <animations/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Planner" translatesAutoresizingMaskIntoConstraints="NO" id="ZnE-YL-DqG">
@@ -127,36 +127,90 @@
                                 <rect key="frame" x="40" y="378" width="100" height="100"/>
                                 <animations/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cs-iI-QWT">
-                                <rect key="frame" x="130" y="518" width="60" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cs-iI-QWT">
+                                <rect key="frame" x="135" y="510" width="50" height="50"/>
                                 <animations/>
-                                <state key="normal" title="Закрыть">
+                                <state key="normal" image="Close2">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="closeButtonPressed:" destination="wf5-SR-aUL" eventType="touchUpInside" id="UWy-L2-dZ9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Фото" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iq-ai-qDy">
+                                <rect key="frame" x="70" y="182" width="41" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Компас" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Czt-Lg-gLm">
+                                <rect key="frame" x="199" y="182" width="61" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Метка" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZf-re-erc">
+                                <rect key="frame" x="65" y="326" width="50" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Планирование" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdX-LZ-GTS">
+                                <rect key="frame" x="171" y="325" width="118" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Маршрут" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNv-oq-l64">
+                                <rect key="frame" x="53.5" y="470" width="74.5" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вещи" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wGu-tV-atm">
+                                <rect key="frame" x="207.5" y="469" width="44.5" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.65266047297297303" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="pZf-re-erc" firstAttribute="top" secondItem="q07-cy-4Ma" secondAttribute="bottom" constant="-8" id="0Ie-az-E6S"/>
                             <constraint firstItem="EoW-WN-tfZ" firstAttribute="leading" secondItem="Vts-17-xyL" secondAttribute="leading" constant="40" id="0ZF-7v-RO9"/>
-                            <constraint firstItem="0Cs-iI-QWT" firstAttribute="top" secondItem="EoW-WN-tfZ" secondAttribute="bottom" constant="40" id="5jo-7k-Gml"/>
+                            <constraint firstItem="BNv-oq-l64" firstAttribute="centerX" secondItem="EoW-WN-tfZ" secondAttribute="centerX" id="1N1-zo-3xk"/>
+                            <constraint firstItem="BNv-oq-l64" firstAttribute="top" secondItem="EoW-WN-tfZ" secondAttribute="bottom" constant="-8" id="3Ej-n3-rPW"/>
+                            <constraint firstItem="wGu-tV-atm" firstAttribute="top" secondItem="n3p-bB-OAT" secondAttribute="bottom" constant="-9" id="4k5-lF-2Zy"/>
+                            <constraint firstItem="0Cs-iI-QWT" firstAttribute="top" secondItem="EoW-WN-tfZ" secondAttribute="bottom" constant="32" id="5jo-7k-Gml"/>
+                            <constraint firstItem="4iq-ai-qDy" firstAttribute="top" secondItem="m1I-wV-xYk" secondAttribute="bottom" constant="-8" id="5nS-f3-sb9"/>
                             <constraint firstAttribute="trailing" secondItem="n3p-bB-OAT" secondAttribute="trailing" constant="40" id="7Kw-Zw-P4m"/>
                             <constraint firstItem="m1I-wV-xYk" firstAttribute="leading" secondItem="Vts-17-xyL" secondAttribute="leading" constant="40" id="Dfy-Zh-Jab"/>
                             <constraint firstItem="0Cs-iI-QWT" firstAttribute="centerX" secondItem="Vts-17-xyL" secondAttribute="centerX" id="DhB-by-foj"/>
                             <constraint firstItem="ZnE-YL-DqG" firstAttribute="centerY" secondItem="S6V-pT-pr8" secondAttribute="centerY" id="H0q-PM-0Rx"/>
+                            <constraint firstItem="pZf-re-erc" firstAttribute="centerX" secondItem="q07-cy-4Ma" secondAttribute="centerX" id="KWE-uy-twx"/>
                             <constraint firstAttribute="trailing" secondItem="Dcq-gQ-6oC" secondAttribute="trailing" constant="40" id="LGc-XQ-l7f"/>
                             <constraint firstItem="q07-cy-4Ma" firstAttribute="centerY" secondItem="S6V-pT-pr8" secondAttribute="centerY" id="N1m-Hr-dKn"/>
-                            <constraint firstItem="Dcq-gQ-6oC" firstAttribute="top" secondItem="bHk-m7-Kqz" secondAttribute="bottom" constant="80" id="Vev-Ly-3tz"/>
-                            <constraint firstItem="m1I-wV-xYk" firstAttribute="top" secondItem="bHk-m7-Kqz" secondAttribute="bottom" constant="80" id="Y0i-jG-mc0"/>
+                            <constraint firstItem="TdX-LZ-GTS" firstAttribute="centerX" secondItem="ZnE-YL-DqG" secondAttribute="centerX" id="Pg6-Rx-Xym"/>
+                            <constraint firstItem="wGu-tV-atm" firstAttribute="centerX" secondItem="n3p-bB-OAT" secondAttribute="centerX" id="QGz-G2-Z40"/>
+                            <constraint firstItem="Czt-Lg-gLm" firstAttribute="centerX" secondItem="Dcq-gQ-6oC" secondAttribute="centerX" id="UDC-By-c9a"/>
+                            <constraint firstItem="4iq-ai-qDy" firstAttribute="centerX" secondItem="m1I-wV-xYk" secondAttribute="centerX" id="V0k-6g-ggI"/>
+                            <constraint firstItem="Dcq-gQ-6oC" firstAttribute="top" secondItem="bHk-m7-Kqz" secondAttribute="bottom" constant="70" id="Vev-Ly-3tz"/>
+                            <constraint firstItem="m1I-wV-xYk" firstAttribute="top" secondItem="bHk-m7-Kqz" secondAttribute="bottom" constant="70" id="Y0i-jG-mc0"/>
                             <constraint firstAttribute="trailing" secondItem="ZnE-YL-DqG" secondAttribute="trailing" constant="40" id="ZPY-VN-tit"/>
                             <constraint firstItem="S6V-pT-pr8" firstAttribute="centerX" secondItem="Vts-17-xyL" secondAttribute="centerX" id="bJf-dM-yF0"/>
-                            <constraint firstItem="0Cs-iI-QWT" firstAttribute="top" secondItem="n3p-bB-OAT" secondAttribute="bottom" constant="40" id="eaf-RE-vDU"/>
+                            <constraint firstItem="0Cs-iI-QWT" firstAttribute="top" secondItem="n3p-bB-OAT" secondAttribute="bottom" constant="32" id="eaf-RE-vDU"/>
                             <constraint firstItem="q07-cy-4Ma" firstAttribute="leading" secondItem="Vts-17-xyL" secondAttribute="leading" constant="40" id="gE3-17-MYH"/>
-                            <constraint firstItem="r73-WP-gww" firstAttribute="top" secondItem="0Cs-iI-QWT" secondAttribute="bottom" constant="20" id="ruP-8j-cbL"/>
+                            <constraint firstItem="r73-WP-gww" firstAttribute="top" secondItem="0Cs-iI-QWT" secondAttribute="bottom" constant="8" id="ruP-8j-cbL"/>
+                            <constraint firstItem="TdX-LZ-GTS" firstAttribute="top" secondItem="ZnE-YL-DqG" secondAttribute="bottom" constant="-9" id="vlb-d7-H8H"/>
                             <constraint firstItem="S6V-pT-pr8" firstAttribute="centerY" secondItem="Vts-17-xyL" secondAttribute="centerY" id="vuj-sb-1Bn"/>
+                            <constraint firstItem="Czt-Lg-gLm" firstAttribute="top" secondItem="Dcq-gQ-6oC" secondAttribute="bottom" constant="-8" id="yXg-2N-4OJ"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
@@ -188,6 +242,7 @@
     </scenes>
     <resources>
         <image name="Camera" width="100" height="100"/>
+        <image name="Close2" width="50" height="50"/>
         <image name="Compass" width="100" height="100"/>
         <image name="Marker" width="100" height="100"/>
         <image name="Menu " width="50" height="50"/>
