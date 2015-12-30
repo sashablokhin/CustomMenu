@@ -34,4 +34,11 @@ class MenuViewController: UIViewController {
     @IBAction func closeButtonPressed(sender: UIButton) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.transitioningDelegate = self.menuTransition
+        
+    }
 }

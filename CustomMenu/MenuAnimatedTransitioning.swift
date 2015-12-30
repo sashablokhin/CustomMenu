@@ -31,22 +31,58 @@ class MenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning
         let menuView = menuViewController.view
         let bottomView = bottomViewController.view
         
+        // setup 2D transitions for animations
+        let offstageLeft = CGAffineTransformMakeTranslation(-150, 0)
+        let offstageRight = CGAffineTransformMakeTranslation(150, 0)
+        
         // prepare the menu
         if (self.presenting){
+            
+            // prepare menu to fade in
             menuView.alpha = 0
+            
+            // prepare menu items to slide in
+            menuViewController.cameraImageView.transform = offstageLeft
+            menuViewController.cameraLabel.transform = offstageLeft
+            
+            menuViewController.compassImageView.transform = offstageRight
+            menuViewController.compassLabel.transform = offstageRight
+            
         }
         
         // add the both views to our view controller
-        container!.addSubview(bottomView)
-        container!.addSubview(menuView)
+        container?.addSubview(bottomView)
+        container?.addSubview(menuView)
         
         let duration = self.transitionDuration(transitionContext)
         
         // perform the animation!
-        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.AllowAnimatedContent, animations: {
+        UIView.animateWithDuration(duration, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.8, options: [], animations: {
             
-            // either fade in or fade out
-            menuView.alpha = self.presenting ? 1 : 0
+                if (self.presenting){
+                    // fade in
+                    menuView.alpha = 1
+                
+                    // onstage items: slide in
+                    menuViewController.cameraImageView.transform = CGAffineTransformIdentity
+                    menuViewController.cameraLabel.transform = CGAffineTransformIdentity
+                
+                    menuViewController.compassImageView.transform = CGAffineTransformIdentity
+                    menuViewController.compassLabel.transform = CGAffineTransformIdentity
+                
+                }
+                else {
+                    // fade out
+                    menuView.alpha = 0
+                
+                    // offstage items: slide out
+                    menuViewController.cameraImageView.transform = offstageLeft
+                    menuViewController.cameraLabel.transform = offstageLeft
+                
+                    menuViewController.compassImageView.transform = offstageRight
+                    menuViewController.compassLabel.transform = offstageRight
+                
+                }
             
             }, completion: { finished in
                 
@@ -54,7 +90,7 @@ class MenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning
                 transitionContext.completeTransition(true)
                 
                 // bug: we have to manually add our 'to view' back 
-                UIApplication.sharedApplication().keyWindow!.addSubview(screens.to.view)
+                UIApplication.sharedApplication().keyWindow?.addSubview(screens.to.view)
                 
         })
         
