@@ -8,9 +8,55 @@
 
 import UIKit
 
-class MenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
+class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
 
     private var presenting = false
+    private var interactive = false
+    
+    private var enterPanGesture: UIScreenEdgePanGestureRecognizer!
+    
+    var sourceViewController: UIViewController! {
+        didSet {
+            self.enterPanGesture = UIScreenEdgePanGestureRecognizer()
+            self.enterPanGesture.addTarget(self, action:"handleOnstagePan:")
+            self.enterPanGesture.edges = UIRectEdge.Left
+            self.sourceViewController.view.addGestureRecognizer(self.enterPanGesture)
+        }
+    }
+    
+    
+    func handleOnstagePan(pan: UIPanGestureRecognizer){
+        // how much distance have we panned in reference to the parent view?
+        let translation = pan.translationInView(pan.view!)
+        
+        // do some math to translate this to a percentage based value
+        let d =  translation.x / CGRectGetWidth(pan.view!.bounds) * 0.5
+        
+        // now lets deal with different states that the gesture recognizer sends
+        switch (pan.state) {
+            
+        case UIGestureRecognizerState.Began:
+            // set our interactive flag to true
+            self.interactive = true
+            
+            // trigger the start of the transition
+            self.sourceViewController.performSegueWithIdentifier("presentMenu", sender: self)
+            break
+            
+        case UIGestureRecognizerState.Changed:
+            
+            // update progress of the transition
+            self.updateInteractiveTransition(d)
+            break
+            
+        default: // .Ended, .Cancelled, .Failed ...
+            
+            // return flag to false and finish the transition
+            self.interactive = false
+            self.finishInteractiveTransition()
+        }
+    }
+    
     
     // MARK: - UIViewControllerAnimatedTransitioning 
     
@@ -67,6 +113,7 @@ class MenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return 0.5
     }
+    
     
     // MARK: - Supporting functions
     
@@ -139,6 +186,16 @@ class MenuAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         self.presenting = false
         return self
+    }
+    
+    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        // if our interactive flag is true, return the transition manager object
+        // otherwise return nil
+        return self.interactive ? self : nil
+    }
+    
+    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return self.interactive ? self : nil
     }
 }
 

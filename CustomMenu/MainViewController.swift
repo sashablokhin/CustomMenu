@@ -13,15 +13,27 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet var tableView: UITableView!
     
     var gradientLayer: CAGradientLayer!
+    
+    // create instance of our custom transition
+    let menuTransition = MenuAnimatedTransitioning()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.menuTransition.sourceViewController = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        let menu = segue.destinationViewController as! MenuViewController
+        menu.transitioningDelegate = self.menuTransition
+        
     }
     
     override func viewDidLayoutSubviews() {

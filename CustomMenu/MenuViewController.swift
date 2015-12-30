@@ -9,10 +9,6 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-    
-    // create instance of our custom transition 
-    let menuTransition = MenuAnimatedTransitioning()
-    
     @IBOutlet var cameraImageView: UIImageView!
     @IBOutlet var cameraLabel: UILabel!
     
@@ -38,7 +34,5 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.transitioningDelegate = self.menuTransition
-        
     }
 }
