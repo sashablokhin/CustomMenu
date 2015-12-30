@@ -214,6 +214,20 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="cameraImageView" destination="m1I-wV-xYk" id="mhc-f0-NIm"/>
+                        <outlet property="cameraLabel" destination="4iq-ai-qDy" id="EcJ-cT-39J"/>
+                        <outlet property="compassImageView" destination="Dcq-gQ-6oC" id="9zC-yd-X32"/>
+                        <outlet property="compassLabel" destination="Czt-Lg-gLm" id="VsN-dV-OAd"/>
+                        <outlet property="markerImageView" destination="q07-cy-4Ma" id="egu-jS-4rZ"/>
+                        <outlet property="markerLabel" destination="pZf-re-erc" id="G8X-fG-o07"/>
+                        <outlet property="plannerImageView" destination="ZnE-YL-DqG" id="iyo-la-onH"/>
+                        <outlet property="plannerLabel" destination="TdX-LZ-GTS" id="Mmz-VD-hfX"/>
+                        <outlet property="routeImageView" destination="EoW-WN-tfZ" id="cbO-BM-JxK"/>
+                        <outlet property="routeLabel" destination="BNv-oq-l64" id="hm1-Rp-p13"/>
+                        <outlet property="suitcaseImageView" destination="n3p-bB-OAT" id="tYI-E7-N5U"/>
+                        <outlet property="suitcaseLabel" destination="wGu-tV-atm" id="RlC-pb-re7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtN-GH-nfg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
