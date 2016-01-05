@@ -53,7 +53,12 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
             
             // return flag to false and finish the transition
             self.interactive = false
-            self.finishInteractiveTransition()
+            
+            if d > 0.2 {
+                self.finishInteractiveTransition()
+            } else {
+                self.cancelInteractiveTransition()
+            }
         }
     }
     
@@ -100,12 +105,17 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
                 }
             
             }, completion: { finished in
-                
                 // tell our transitionContext object that we've finished animating
-                transitionContext.completeTransition(true)
-                
-                // bug: we have to manually add our 'to view' back 
-                UIApplication.sharedApplication().keyWindow?.addSubview(screens.to.view)
+                if(transitionContext.transitionWasCancelled()){
+                    transitionContext.completeTransition(false)
+                    // bug: we have to manually add our 'to view' back 
+                    UIApplication.sharedApplication().keyWindow?.addSubview(screens.from.view)
+                }
+                else {
+                    transitionContext.completeTransition(true)
+                    // bug: we have to manually add our 'to view' back
+                    UIApplication.sharedApplication().keyWindow?.addSubview(screens.to.view)
+                }
         })
     }
     
