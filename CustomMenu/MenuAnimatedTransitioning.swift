@@ -14,6 +14,7 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
     private var interactive = false
     
     private var enterPanGesture: UIScreenEdgePanGestureRecognizer!
+    private var exitPanGesture: UIPanGestureRecognizer!
     
     var sourceViewController: UIViewController! {
         didSet {
@@ -21,6 +22,15 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
             self.enterPanGesture.addTarget(self, action:"handleOnstagePan:")
             self.enterPanGesture.edges = UIRectEdge.Left
             self.sourceViewController.view.addGestureRecognizer(self.enterPanGesture)
+        }
+    }
+    
+    
+    var menuViewController: UIViewController! {
+        didSet {
+            self.exitPanGesture = UIPanGestureRecognizer()
+            self.exitPanGesture.addTarget(self, action: "handleOffstagePan:")
+            self.menuViewController.view.addGestureRecognizer(self.exitPanGesture)
         }
     }
     
@@ -55,6 +65,44 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
             self.interactive = false
             
             if d > 0.2 {
+                self.finishInteractiveTransition()
+            } else {
+                self.cancelInteractiveTransition()
+            }
+        }
+    }
+    
+    
+    func handleOffstagePan(pan: UIPanGestureRecognizer){
+        // how much distance have we panned in reference to the parent view?
+        let translation = pan.translationInView(pan.view!)
+        
+        // do some math to translate this to a percentage based value
+        let d =  translation.x / CGRectGetWidth(pan.view!.bounds) * -0.5
+        
+        // now lets deal with different states that the gesture recognizer sends
+        switch (pan.state) {
+            
+        case UIGestureRecognizerState.Began:
+            // set our interactive flag to true
+            self.interactive = true
+            
+            //self.sourceViewController.performSegueWithIdentifier("presentMenu", sender: self)
+            self.menuViewController.dismissViewControllerAnimated(true, completion: nil)
+            break
+            
+        case UIGestureRecognizerState.Changed:
+            
+            // update progress of the transition
+            self.updateInteractiveTransition(d)
+            break
+            
+        default: // .Ended, .Cancelled, .Failed ...
+            
+            // return flag to false and finish the transition
+            self.interactive = false
+            
+            if d > 0.1 {
                 self.finishInteractiveTransition()
             } else {
                 self.cancelInteractiveTransition()
@@ -131,9 +179,9 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
         menuViewController.view.alpha = 0
         
         // setup parameters for 2D transitions for animations
-        let topRowOffset  :CGFloat = 300
-        let middleRowOffset :CGFloat = 150
-        let bottomRowOffset  :CGFloat = 50
+        let topRowOffset: CGFloat = 300
+        let middleRowOffset: CGFloat = 150
+        let bottomRowOffset: CGFloat = 50
         
         menuViewController.cameraImageView.transform = self.offStage(-topRowOffset)
         menuViewController.cameraLabel.transform = self.offStage(-topRowOffset)

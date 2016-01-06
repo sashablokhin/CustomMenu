@@ -34,6 +34,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let menu = segue.destinationViewController as! MenuViewController
         menu.transitioningDelegate = self.menuTransition
         
+        self.menuTransition.menuViewController = menu
     }
     
     override func viewDidLayoutSubviews() {
