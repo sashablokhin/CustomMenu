@@ -131,7 +131,11 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
         let bottomView = bottomViewController.view
         
         if (self.presenting) {
-            self.offStageMenuController(menuViewController)
+            if self.interactive {
+                self.offStageMenuControllerInteractive(menuViewController)
+            } else {
+                self.offStageMenuController(menuViewController)
+            }
         }
         
         // add the both views to our view controller
@@ -149,7 +153,11 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
                 }
                 else {
                     // fade out
-                    self.offStageMenuController(menuViewController)
+                    if self.interactive {
+                        self.offStageMenuControllerInteractive(menuViewController)
+                    } else {
+                        self.offStageMenuController(menuViewController)
+                    }
                 }
             
             }, completion: { finished in
@@ -201,6 +209,33 @@ class MenuAnimatedTransitioning: UIPercentDrivenInteractiveTransition, UIViewCon
         menuViewController.suitcaseImageView.transform = self.offStage(bottomRowOffset)
         menuViewController.suitcaseLabel.transform = self.offStage(bottomRowOffset)
     }
+    
+    
+    func offStageMenuControllerInteractive(menuViewController: MenuViewController) {
+        menuViewController.view.alpha = 0
+        
+        // setup parameters for 2D transitions for animations
+        let offstageOffset: CGFloat = -300
+        
+        menuViewController.cameraImageView.transform = self.offStage(offstageOffset)
+        menuViewController.cameraLabel.transform = self.offStage(offstageOffset)
+        
+        menuViewController.compassImageView.transform = self.offStage(offstageOffset)
+        menuViewController.compassLabel.transform = self.offStage(offstageOffset)
+        
+        menuViewController.markerImageView.transform = self.offStage(offstageOffset)
+        menuViewController.markerLabel.transform = self.offStage(offstageOffset)
+        
+        menuViewController.plannerImageView.transform = self.offStage(offstageOffset)
+        menuViewController.plannerLabel.transform = self.offStage(offstageOffset)
+        
+        menuViewController.routeImageView.transform = self.offStage(offstageOffset)
+        menuViewController.routeLabel.transform = self.offStage(offstageOffset)
+        
+        menuViewController.suitcaseImageView.transform = self.offStage(offstageOffset)
+        menuViewController.suitcaseLabel.transform = self.offStage(offstageOffset)
+    }
+    
     
     func onStageMenuController(menuViewController: MenuViewController){
         // prepare menu to fade in
